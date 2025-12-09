@@ -25,9 +25,9 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-3u!p7@f0q#x9h%k2w=r8t1c")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -107,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 AUTH_USER_MODEL = 'kitchen.Cook'
+
+LOGIN_REDIRECT_URL = '/'
 
 
 # Internationalization
