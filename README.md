@@ -8,6 +8,10 @@ The project provides administration tools for:
 
 The system includes authentification, search functionality and ability to assign cooks to dishes.
 
+## Check it out!
+
+https://kitchen-service-amhd.onrender.com
+
 ## Installation
 
 Python3 must be already installed!
