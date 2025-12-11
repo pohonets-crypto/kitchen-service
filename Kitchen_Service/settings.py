@@ -13,11 +13,12 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
@@ -49,7 +50,7 @@ DATABASES = {
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-load_dotenv()
+
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-3u!p7@f0q#x9h%k2w=r8t1c")
 
 # Application definition
@@ -121,7 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'kitchen.Cook'
 
 LOGIN_REDIRECT_URL = '/'
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

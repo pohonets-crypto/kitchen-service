@@ -2,28 +2,44 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
 
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+      <div class="card blur shadow-blur mt-7">
+        <div class="card-header text-center pb-0">
+          <h3 class="font-weight-bolder text-info text-gradient">Login</h3>
+          {% if next %}
+            <p class="mb-0 text-sm">Please login to see this page</p>
+          {% endif %}
+        </div>
 
-<h1>Login</h1>
+        <div class="card-body">
 
-{% if next %}
-  <p>Please login to see this page.</p>
-{% endif %}
+          {% if form.errors %}
+            <div class="alert alert-danger text-white" role="alert">
+              Your username and password didn’t match. Try again.
+            </div>
+          {% endif %}
 
-  <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{{ request.path }}">
-</form>
+          <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
 
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  {{ form|crispy }}
+            {{ form|crispy }}
 
-  <input type="submit" value="Login" class="btn btn-primary" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
+            <div class="text-center">
+              <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                Login
+              </button>
+            </div>
 
+            <input type="hidden" name="next" value="{{ next }}">
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -3,5 +3,9 @@
 {% block content %}
 <p>Logged out!</p>
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+<form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ request.path }}">
+</form>
+
 {% endblock %}
