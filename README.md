@@ -12,6 +12,12 @@ The system includes authentification, search functionality and ability to assign
 
 https://kitchen-service-amhd.onrender.com
 
+### Login with:
+
+user: user
+
+password: user12345
+
 ## Installation
 
 Python3 must be already installed!
@@ -29,3 +35,4 @@ python manage.py runserver #Starts Django Server
 
 * Authentication functionality for Cook/User
 * Powerful admin panel for advanced managing
+
