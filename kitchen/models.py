@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
 
@@ -29,8 +29,11 @@ class Cook(AbstractUser):
         validators=[
             MinValueValidator(
                 0,
-                message="Years Of Experience can`t be negative"
-        )
+                message="Years Of Experience can`t be negative."
+        ),
+            MaxValueValidator(
+                40,
+                message="Experience cannot exceed 40 years.")
         ]
     )
 
